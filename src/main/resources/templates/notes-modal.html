@@ -1,0 +1,41 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/trumbowyg.min.js"
+        integrity="sha512-t4CFex/T+ioTF5y0QZnCY9r5fkE8bMf9uoNH2HNSwsiTaMQMO0C9KbKPMvwWNdVaEO51nDL3pAzg4ydjWXaqbg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.25.1/ui/trumbowyg.min.css"
+      integrity="sha512-nwpMzLYxfwDnu68Rt9PqLqgVtHkIJxEPrlu3PfTfLQKVgBAlTKDmim1JvCGNyNRtyvCx1nNIVBfYm8UZotWd4Q=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+<div class="modal-dialog modal-lg" th:fragment="notes-modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 class="modal-title">Notes</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="card">
+                <div class="card-body">
+                    <strong>Notes:</strong>
+                    <span id="custom-notes"></span>
+                </div>
+            </div>
+            <div id="editor" style="display: none;"></div>
+        </div>
+
+        <div class="modal-footer">
+            <div id="notes-alert" class="alert alert-danger alert-dismissible" style="display: none">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <span id="notes-alert-msg"></span>
+            </div>
+            <button id="new-note" class="btn btn-primary" onclick="initializeNewNote()"><i class="fa fa-plus"></i> New Note</button>
+            <button id="delete-note" class="btn btn-warning" onclick="deleteNote()"><i class="fa fa-trash"></i> Delete Note</button>
+            <button type="button" class="btn btn-success" onclick="saveNewNote()"><i class="fa fa-save"></i> Save Note
+            </button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/script/notes.js}"></script>

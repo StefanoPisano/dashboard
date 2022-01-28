@@ -1,0 +1,47 @@
+<div class="modal-dialog modal-lg" th:fragment="event-modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 class="modal-title">Create ICS Event</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="card">
+                <div class="card-body">
+                    <strong>Templates:</strong>
+                    <button id="default-template" class="btn btn-light" onclick="initializeDefaultTemplate()">Default</button>
+                    <span id="custom-templates"></span>
+                </div>
+            </div>
+            Event Name: <input type="text" class="form-control" id="eventName">
+            Event Description: <input type="text" class="form-control" id="eventDescription">
+            From Date: <input type="date" class="form-control" id="eventDate">
+            From Hours: <input type="number" class="form-control" id="eventHours" min="0" max="24">
+            From Minutes: <input type="number" class="form-control" id="eventMinutes" min="0" max="59">
+            To Date: <input type="date" class="form-control" id="eventTODate">
+            To Hours: <input type="number" class="form-control" id="eventTOHours" min="0" max="24">
+            To Minutes: <input type="number" class="form-control" id="eventTOMinutes" min="0" max="59">
+
+            <div id="event-alert" class="alert alert-danger alert-dismissible" style="display: none">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <span id="event-alert-msg"></span>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button id="delete-template" class="btn btn-warning" onclick="deleteTemplate()"><i class="fa fa-trash"></i> Delete Template
+            </button>
+            <button class="btn btn-success" onclick="saveAsTemplate()"><i class="fa fa-save"></i> Save as Template
+            </button>
+            <button class="btn btn-primary" onclick="downloadICSCalendar()"><i class="fa fa-save"></i> Download Event
+            </button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fa fa-times"></i> Close
+            </button>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/script/fileSaver.js}"></script>
+<script th:src="@{/script/ics.js}"></script>
+<script th:src="@{/script/event.js}"></script>
